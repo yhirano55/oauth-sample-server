@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'home#index'
+  devise_for :users
   use_doorkeeper
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :api, defaults: { format: :json } do
+    get '/me', to: 'current_user#show'
+  end
 end
