@@ -60,3 +60,5 @@ gem "devise", "~> 4.7"
 gem "omniauth-oauth2", "~> 1.6"
 
 gem "dotenv-rails", "~> 2.7", :groups => [:development, :test]
+
+gem "redis-rails", "~> 5.0"
