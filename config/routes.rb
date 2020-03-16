@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   use_doorkeeper
 
   namespace :api, defaults: { format: :json } do
-    get '/me', to: 'current_user#show'
+    get '/me', to: 'current_users#show'
   end
 
   get 'auth/doorkeeper/callback', to: 'callbacks#handle'
