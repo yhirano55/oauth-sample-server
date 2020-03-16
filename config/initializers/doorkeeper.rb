@@ -7,7 +7,15 @@ Doorkeeper.configure do
 
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
-    warden.authenticate!(scope: :user) || redirect_to(new_user_session_url)
+    # NOTE: 中継の場合はrequest_urlを保存して認可へ
+    if ENV['IS_RELAY']
+      User.find_by(email: session[:email]) || begin
+        session[:request_url] = request.url
+        redirect_to('/auth/doorkeeper')
+      end
+    else
+      warden.authenticate!(scope: :user) || redirect_to(new_user_session_url)
+    end
   end
 
   # If you didn't skip applications controller from Doorkeeper routes in your application routes.rb
