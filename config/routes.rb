@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     get '/me', to: 'current_user#show'
   end
+
+  post 'auth/doorkeeper/callback', to: 'callbacks#handle'
 end
