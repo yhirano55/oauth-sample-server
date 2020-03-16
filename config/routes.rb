@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     get '/me', to: 'current_users#show'
   end
 
-  post 'auth/doorkeeper/callback', to: 'callbacks#handle'
+  get 'auth/doorkeeper/callback', to: 'callbacks#handle'
 end
