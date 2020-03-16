@@ -58,3 +58,5 @@ gem "doorkeeper", "~> 5.3"
 gem "devise", "~> 4.7"
 
 gem "omniauth-oauth2", "~> 1.6"
+
+gem "dotenv-rails", "~> 2.7", :groups => [:development, :test]
