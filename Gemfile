@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "doorkeeper", "~> 5.3"
 
 gem "devise", "~> 4.7"
+
+gem "omniauth-oauth2", "~> 1.6"
