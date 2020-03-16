@@ -10,8 +10,15 @@
   </head>
 
   <body>
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <% if user_signed_in? %>
+      <ul>
+        <li>id: <%= current_user.id %></li>
+        <li>email: <%= current_user.email %></li>
+        <li><%= link_to 'signout', destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% end %>
     <%= yield %>
   </body>
 </html>
